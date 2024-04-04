@@ -48,12 +48,6 @@ export interface User {
     id: string;
     /**
      *
-     * @type {string}
-     * @memberof User
-     */
-    name: string;
-    /**
-     *
      * @type {PublicFile}
      * @memberof User
      */

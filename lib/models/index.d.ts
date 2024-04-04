@@ -6,7 +6,6 @@ export * from './ModelError';
 export * from './PublicFile';
 export * from './Region';
 export * from './User';
-export * from './UsersLoginRequest';
 export * from './UsersProfileGet200Response';
 export * from './UsersProfileUpdate200Response';
 export * from './UsersProfileUpdateRequest';

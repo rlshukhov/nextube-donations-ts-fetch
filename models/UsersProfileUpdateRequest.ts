@@ -40,12 +40,6 @@ export interface UsersProfileUpdateRequest {
     email?: string;
     /**
      * 
-     * @type {string}
-     * @memberof UsersProfileUpdateRequest
-     */
-    name?: string;
-    /**
-     * 
      * @type {UsersProfileUpdateRequestAuth}
      * @memberof UsersProfileUpdateRequest
      */
@@ -76,7 +70,6 @@ export function UsersProfileUpdateRequestFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'email': json['email'] == null ? undefined : json['email'],
-        'name': json['name'] == null ? undefined : json['name'],
         'auth': json['auth'] == null ? undefined : UsersProfileUpdateRequestAuthFromJSON(json['auth']),
         'avatar': json['avatar'] == null ? undefined : UsersProfileUpdateRequestAvatarFromJSON(json['avatar']),
     };
@@ -89,7 +82,6 @@ export function UsersProfileUpdateRequestToJSON(value?: UsersProfileUpdateReques
     return {
         
         'email': value['email'],
-        'name': value['name'],
         'auth': UsersProfileUpdateRequestAuthToJSON(value['auth']),
         'avatar': UsersProfileUpdateRequestAvatarToJSON(value['avatar']),
     };

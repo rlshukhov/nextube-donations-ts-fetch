@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/GeoApi.ts
 apis/UsersApi.ts
 apis/index.ts
@@ -11,7 +10,6 @@ models/ModelError.ts
 models/PublicFile.ts
 models/Region.ts
 models/User.ts
-models/UsersLoginRequest.ts
 models/UsersProfileGet200Response.ts
 models/UsersProfileUpdate200Response.ts
 models/UsersProfileUpdateRequest.ts

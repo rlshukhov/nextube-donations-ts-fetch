@@ -27,12 +27,6 @@ export interface UsersRegisterRequest {
      * @memberof UsersRegisterRequest
      */
     password: string;
-    /**
-     *
-     * @type {string}
-     * @memberof UsersRegisterRequest
-     */
-    name: string;
 }
 /**
  * Check if a given object implements the UsersRegisterRequest interface.

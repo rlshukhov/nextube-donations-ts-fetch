@@ -58,12 +58,6 @@ export interface User {
     id: string;
     /**
      * 
-     * @type {string}
-     * @memberof User
-     */
-    name: string;
-    /**
-     * 
      * @type {PublicFile}
      * @memberof User
      */
@@ -79,7 +73,6 @@ export function instanceOfUser(value: object): boolean {
     if (!('registrationDate' in value)) return false;
     if (!('isModerationApproved' in value)) return false;
     if (!('id' in value)) return false;
-    if (!('name' in value)) return false;
     if (!('avatar' in value)) return false;
     return true;
 }
@@ -99,7 +92,6 @@ export function UserFromJSONTyped(json: any, ignoreDiscriminator: boolean): User
         'registrationDate': json['registration_date'],
         'isModerationApproved': json['is_moderation_approved'],
         'id': json['id'],
-        'name': json['name'],
         'avatar': PublicFileFromJSON(json['avatar']),
     };
 }
@@ -115,7 +107,6 @@ export function UserToJSON(value?: User | null): any {
         'registration_date': value['registrationDate'],
         'is_moderation_approved': value['isModerationApproved'],
         'id': value['id'],
-        'name': value['name'],
         'avatar': PublicFileToJSON(value['avatar']),
     };
 }

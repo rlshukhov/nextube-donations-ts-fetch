@@ -31,12 +31,6 @@ export interface UsersRegisterRequest {
      * @memberof UsersRegisterRequest
      */
     password: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsersRegisterRequest
-     */
-    name: string;
 }
 
 /**
@@ -45,7 +39,6 @@ export interface UsersRegisterRequest {
 export function instanceOfUsersRegisterRequest(value: object): boolean {
     if (!('login' in value)) return false;
     if (!('password' in value)) return false;
-    if (!('name' in value)) return false;
     return true;
 }
 
@@ -61,7 +54,6 @@ export function UsersRegisterRequestFromJSONTyped(json: any, ignoreDiscriminator
         
         'login': json['login'],
         'password': json['password'],
-        'name': json['name'],
     };
 }
 
@@ -73,7 +65,6 @@ export function UsersRegisterRequestToJSON(value?: UsersRegisterRequest | null):
         
         'login': value['login'],
         'password': value['password'],
-        'name': value['name'],
     };
 }
 

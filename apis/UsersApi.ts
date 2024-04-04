@@ -15,7 +15,6 @@
 
 import * as runtime from '../runtime';
 import type {
-  UsersLoginRequest,
   UsersProfileGet200Response,
   UsersProfileUpdate200Response,
   UsersProfileUpdateRequest,
@@ -23,8 +22,6 @@ import type {
   UsersRegisterRequest,
 } from '../models/index';
 import {
-    UsersLoginRequestFromJSON,
-    UsersLoginRequestToJSON,
     UsersProfileGet200ResponseFromJSON,
     UsersProfileGet200ResponseToJSON,
     UsersProfileUpdate200ResponseFromJSON,
@@ -37,8 +34,8 @@ import {
     UsersRegisterRequestToJSON,
 } from '../models/index';
 
-export interface UsersLoginOperationRequest {
-    usersLoginRequest: UsersLoginRequest;
+export interface UsersLoginRequest {
+    usersRegisterRequest: UsersRegisterRequest;
 }
 
 export interface UsersProfileUpdateOperationRequest {
@@ -84,11 +81,11 @@ export class UsersApi extends runtime.BaseAPI {
 
     /**
      */
-    async usersLoginRaw(requestParameters: UsersLoginOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersRegister200Response>> {
-        if (requestParameters['usersLoginRequest'] == null) {
+    async usersLoginRaw(requestParameters: UsersLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersRegister200Response>> {
+        if (requestParameters['usersRegisterRequest'] == null) {
             throw new runtime.RequiredError(
-                'usersLoginRequest',
-                'Required parameter "usersLoginRequest" was null or undefined when calling usersLogin().'
+                'usersRegisterRequest',
+                'Required parameter "usersRegisterRequest" was null or undefined when calling usersLogin().'
             );
         }
 
@@ -103,7 +100,7 @@ export class UsersApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: UsersLoginRequestToJSON(requestParameters['usersLoginRequest']),
+            body: UsersRegisterRequestToJSON(requestParameters['usersRegisterRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UsersRegister200ResponseFromJSON(jsonValue));
@@ -111,7 +108,7 @@ export class UsersApi extends runtime.BaseAPI {
 
     /**
      */
-    async usersLogin(requestParameters: UsersLoginOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersRegister200Response> {
+    async usersLogin(requestParameters: UsersLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersRegister200Response> {
         const response = await this.usersLoginRaw(requestParameters, initOverrides);
         return await response.value();
     }

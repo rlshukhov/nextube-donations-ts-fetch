@@ -25,12 +25,6 @@ export interface UsersProfileUpdateRequest {
     email?: string;
     /**
      *
-     * @type {string}
-     * @memberof UsersProfileUpdateRequest
-     */
-    name?: string;
-    /**
-     *
      * @type {UsersProfileUpdateRequestAuth}
      * @memberof UsersProfileUpdateRequest
      */
