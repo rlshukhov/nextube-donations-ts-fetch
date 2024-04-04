@@ -1,0 +1,19 @@
+{
+  "name": "nextube-donations-ts-fetch",
+  "version": "1.0.0",
+  "description": "Nextube Donations API client",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Lane Shukhov",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rlshukhov/nextube-donations-ts-fetch.git"
+  }
+}
