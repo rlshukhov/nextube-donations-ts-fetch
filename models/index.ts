@@ -1,10 +1,17 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './ChannelsCreate200Response';
+export * from './ChannelsCreateRequest';
+export * from './ChannelsFeaturedList200Response';
+export * from './ChannelsOwnedList200Response';
+export * from './ChannelsPublicIdGet200Response';
 export * from './City';
 export * from './Country';
 export * from './Geo';
 export * from './GeoList200Response';
 export * from './ModelError';
+export * from './PrivateChannel';
+export * from './PublicChannel';
 export * from './PublicFile';
 export * from './Region';
 export * from './User';
