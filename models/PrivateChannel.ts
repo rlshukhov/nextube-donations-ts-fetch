@@ -13,12 +13,12 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PublicFile } from './PublicFile';
+import type { PrivateFile } from './PrivateFile';
 import {
-    PublicFileFromJSON,
-    PublicFileFromJSONTyped,
-    PublicFileToJSON,
-} from './PublicFile';
+    PrivateFileFromJSON,
+    PrivateFileFromJSONTyped,
+    PrivateFileToJSON,
+} from './PrivateFile';
 
 /**
  * 
@@ -32,6 +32,12 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     showCollectedSum: boolean;
+    /**
+     * 
+     * @type {PrivateFile}
+     * @memberof PrivateChannel
+     */
+    avatarFile: PrivateFile;
     /**
      * 
      * @type {string}
@@ -58,12 +64,6 @@ export interface PrivateChannel {
     description?: string;
     /**
      * 
-     * @type {PublicFile}
-     * @memberof PrivateChannel
-     */
-    avatarFile: PublicFile;
-    /**
-     * 
      * @type {string}
      * @memberof PrivateChannel
      */
@@ -75,10 +75,10 @@ export interface PrivateChannel {
  */
 export function instanceOfPrivateChannel(value: object): boolean {
     if (!('showCollectedSum' in value)) return false;
+    if (!('avatarFile' in value)) return false;
     if (!('id' in value)) return false;
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
-    if (!('avatarFile' in value)) return false;
     if (!('creationDate' in value)) return false;
     return true;
 }
@@ -94,11 +94,11 @@ export function PrivateChannelFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'showCollectedSum': json['show_collected_sum'],
+        'avatarFile': PrivateFileFromJSON(json['avatar_file']),
         'id': json['id'],
         'name': json['name'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
-        'avatarFile': PublicFileFromJSON(json['avatar_file']),
         'creationDate': json['creation_date'],
     };
 }
@@ -110,11 +110,11 @@ export function PrivateChannelToJSON(value?: PrivateChannel | null): any {
     return {
         
         'show_collected_sum': value['showCollectedSum'],
+        'avatar_file': PrivateFileToJSON(value['avatarFile']),
         'id': value['id'],
         'name': value['name'],
         'title': value['title'],
         'description': value['description'],
-        'avatar_file': PublicFileToJSON(value['avatarFile']),
         'creation_date': value['creationDate'],
     };
 }

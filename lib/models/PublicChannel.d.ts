@@ -18,6 +18,12 @@ import type { PublicFile } from './PublicFile';
 export interface PublicChannel {
     /**
      *
+     * @type {PublicFile}
+     * @memberof PublicChannel
+     */
+    avatarFile: PublicFile;
+    /**
+     *
      * @type {string}
      * @memberof PublicChannel
      */
@@ -40,12 +46,6 @@ export interface PublicChannel {
      * @memberof PublicChannel
      */
     description?: string;
-    /**
-     *
-     * @type {PublicFile}
-     * @memberof PublicChannel
-     */
-    avatarFile: PublicFile;
     /**
      *
      * @type {string}

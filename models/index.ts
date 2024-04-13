@@ -12,6 +12,7 @@ export * from './Geo';
 export * from './GeoList200Response';
 export * from './ModelError';
 export * from './PrivateChannel';
+export * from './PrivateFile';
 export * from './PublicChannel';
 export * from './PublicFile';
 export * from './Region';

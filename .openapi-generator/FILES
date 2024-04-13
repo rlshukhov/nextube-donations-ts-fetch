@@ -15,6 +15,7 @@ models/Geo.ts
 models/GeoList200Response.ts
 models/ModelError.ts
 models/PrivateChannel.ts
+models/PrivateFile.ts
 models/PublicChannel.ts
 models/PublicFile.ts
 models/Region.ts

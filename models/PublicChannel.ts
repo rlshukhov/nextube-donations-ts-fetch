@@ -28,6 +28,12 @@ import {
 export interface PublicChannel {
     /**
      * 
+     * @type {PublicFile}
+     * @memberof PublicChannel
+     */
+    avatarFile: PublicFile;
+    /**
+     * 
      * @type {string}
      * @memberof PublicChannel
      */
@@ -52,12 +58,6 @@ export interface PublicChannel {
     description?: string;
     /**
      * 
-     * @type {PublicFile}
-     * @memberof PublicChannel
-     */
-    avatarFile: PublicFile;
-    /**
-     * 
      * @type {string}
      * @memberof PublicChannel
      */
@@ -68,10 +68,10 @@ export interface PublicChannel {
  * Check if a given object implements the PublicChannel interface.
  */
 export function instanceOfPublicChannel(value: object): boolean {
+    if (!('avatarFile' in value)) return false;
     if (!('id' in value)) return false;
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
-    if (!('avatarFile' in value)) return false;
     if (!('creationDate' in value)) return false;
     return true;
 }
@@ -86,11 +86,11 @@ export function PublicChannelFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
+        'avatarFile': PublicFileFromJSON(json['avatar_file']),
         'id': json['id'],
         'name': json['name'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
-        'avatarFile': PublicFileFromJSON(json['avatar_file']),
         'creationDate': json['creation_date'],
     };
 }
@@ -101,11 +101,11 @@ export function PublicChannelToJSON(value?: PublicChannel | null): any {
     }
     return {
         
+        'avatar_file': PublicFileToJSON(value['avatarFile']),
         'id': value['id'],
         'name': value['name'],
         'title': value['title'],
         'description': value['description'],
-        'avatar_file': PublicFileToJSON(value['avatarFile']),
         'creation_date': value['creationDate'],
     };
 }

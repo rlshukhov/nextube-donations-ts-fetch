@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PublicFile } from './PublicFile';
+import type { PrivateFile } from './PrivateFile';
 /**
  *
  * @export
@@ -22,6 +22,12 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     showCollectedSum: boolean;
+    /**
+     *
+     * @type {PrivateFile}
+     * @memberof PrivateChannel
+     */
+    avatarFile: PrivateFile;
     /**
      *
      * @type {string}
@@ -46,12 +52,6 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     description?: string;
-    /**
-     *
-     * @type {PublicFile}
-     * @memberof PrivateChannel
-     */
-    avatarFile: PublicFile;
     /**
      *
      * @type {string}
