@@ -8,6 +8,7 @@ models/ChannelsCreateRequest.ts
 models/ChannelsFeaturedList200Response.ts
 models/ChannelsOwnedList200Response.ts
 models/ChannelsPublicIdGet200Response.ts
+models/ChannelsUpdateRequest.ts
 models/City.ts
 models/Country.ts
 models/Geo.ts

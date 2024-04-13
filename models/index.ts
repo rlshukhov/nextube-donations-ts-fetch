@@ -5,6 +5,7 @@ export * from './ChannelsCreateRequest';
 export * from './ChannelsFeaturedList200Response';
 export * from './ChannelsOwnedList200Response';
 export * from './ChannelsPublicIdGet200Response';
+export * from './ChannelsUpdateRequest';
 export * from './City';
 export * from './Country';
 export * from './Geo';

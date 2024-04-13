@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChannelsCreate200Response, ChannelsCreateRequest, ChannelsFeaturedList200Response, ChannelsOwnedList200Response, ChannelsPublicIdGet200Response } from '../models/index';
+import type { ChannelsCreate200Response, ChannelsCreateRequest, ChannelsFeaturedList200Response, ChannelsOwnedList200Response, ChannelsPublicIdGet200Response, ChannelsUpdateRequest } from '../models/index';
 export interface ChannelsCreateOperationRequest {
     channelsCreateRequest: ChannelsCreateRequest;
 }
@@ -30,6 +30,9 @@ export interface ChannelsPublicIdGetRequest {
 }
 export interface ChannelsPublicNameGetRequest {
     name: string;
+}
+export interface ChannelsUpdateOperationRequest {
+    channelsUpdateRequest: ChannelsUpdateRequest;
 }
 /**
  *
@@ -71,4 +74,10 @@ export declare class ChannelsApi extends runtime.BaseAPI {
     /**
      */
     channelsPublicNameGet(requestParameters: ChannelsPublicNameGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsPublicIdGet200Response>;
+    /**
+     */
+    channelsUpdateRaw(requestParameters: ChannelsUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelsCreate200Response>>;
+    /**
+     */
+    channelsUpdate(requestParameters: ChannelsUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsCreate200Response>;
 }

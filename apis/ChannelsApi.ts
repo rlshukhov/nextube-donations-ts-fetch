@@ -20,6 +20,7 @@ import type {
   ChannelsFeaturedList200Response,
   ChannelsOwnedList200Response,
   ChannelsPublicIdGet200Response,
+  ChannelsUpdateRequest,
 } from '../models/index';
 import {
     ChannelsCreate200ResponseFromJSON,
@@ -32,6 +33,8 @@ import {
     ChannelsOwnedList200ResponseToJSON,
     ChannelsPublicIdGet200ResponseFromJSON,
     ChannelsPublicIdGet200ResponseToJSON,
+    ChannelsUpdateRequestFromJSON,
+    ChannelsUpdateRequestToJSON,
 } from '../models/index';
 
 export interface ChannelsCreateOperationRequest {
@@ -58,6 +61,10 @@ export interface ChannelsPublicIdGetRequest {
 
 export interface ChannelsPublicNameGetRequest {
     name: string;
+}
+
+export interface ChannelsUpdateOperationRequest {
+    channelsUpdateRequest: ChannelsUpdateRequest;
 }
 
 /**
@@ -293,6 +300,44 @@ export class ChannelsApi extends runtime.BaseAPI {
      */
     async channelsPublicNameGet(requestParameters: ChannelsPublicNameGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsPublicIdGet200Response> {
         const response = await this.channelsPublicNameGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async channelsUpdateRaw(requestParameters: ChannelsUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelsCreate200Response>> {
+        if (requestParameters['channelsUpdateRequest'] == null) {
+            throw new runtime.RequiredError(
+                'channelsUpdateRequest',
+                'Required parameter "channelsUpdateRequest" was null or undefined when calling channelsUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["X-Session-Token"] = await this.configuration.apiKey("X-Session-Token"); // Token authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/channels`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ChannelsUpdateRequestToJSON(requestParameters['channelsUpdateRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChannelsCreate200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async channelsUpdate(requestParameters: ChannelsUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsCreate200Response> {
+        const response = await this.channelsUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

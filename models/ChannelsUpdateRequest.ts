@@ -23,45 +23,52 @@ import {
 /**
  * 
  * @export
- * @interface ChannelsCreateRequest
+ * @interface ChannelsUpdateRequest
  */
-export interface ChannelsCreateRequest {
+export interface ChannelsUpdateRequest {
     /**
      * 
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChannelsUpdateRequest
      */
     name: string;
     /**
      * 
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     title: string;
     /**
      * 
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     description?: string;
     /**
      * 
      * @type {UsersProfileUpdateRequestAvatar}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     avatarFile: UsersProfileUpdateRequestAvatar;
     /**
      * 
      * @type {boolean}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     showCollectedSum: boolean;
 }
 
 /**
- * Check if a given object implements the ChannelsCreateRequest interface.
+ * Check if a given object implements the ChannelsUpdateRequest interface.
  */
-export function instanceOfChannelsCreateRequest(value: object): boolean {
+export function instanceOfChannelsUpdateRequest(value: object): boolean {
+    if (!('id' in value)) return false;
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
     if (!('avatarFile' in value)) return false;
@@ -69,16 +76,17 @@ export function instanceOfChannelsCreateRequest(value: object): boolean {
     return true;
 }
 
-export function ChannelsCreateRequestFromJSON(json: any): ChannelsCreateRequest {
-    return ChannelsCreateRequestFromJSONTyped(json, false);
+export function ChannelsUpdateRequestFromJSON(json: any): ChannelsUpdateRequest {
+    return ChannelsUpdateRequestFromJSONTyped(json, false);
 }
 
-export function ChannelsCreateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChannelsCreateRequest {
+export function ChannelsUpdateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChannelsUpdateRequest {
     if (json == null) {
         return json;
     }
     return {
         
+        'id': json['id'],
         'name': json['name'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
@@ -87,12 +95,13 @@ export function ChannelsCreateRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-export function ChannelsCreateRequestToJSON(value?: ChannelsCreateRequest | null): any {
+export function ChannelsUpdateRequestToJSON(value?: ChannelsUpdateRequest | null): any {
     if (value == null) {
         return value;
     }
     return {
         
+        'id': value['id'],
         'name': value['name'],
         'title': value['title'],
         'description': value['description'],

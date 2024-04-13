@@ -13,44 +13,50 @@ import type { UsersProfileUpdateRequestAvatar } from './UsersProfileUpdateReques
 /**
  *
  * @export
- * @interface ChannelsCreateRequest
+ * @interface ChannelsUpdateRequest
  */
-export interface ChannelsCreateRequest {
+export interface ChannelsUpdateRequest {
     /**
      *
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
+     */
+    id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ChannelsUpdateRequest
      */
     name: string;
     /**
      *
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     title: string;
     /**
      *
      * @type {string}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     description?: string;
     /**
      *
      * @type {UsersProfileUpdateRequestAvatar}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     avatarFile: UsersProfileUpdateRequestAvatar;
     /**
      *
      * @type {boolean}
-     * @memberof ChannelsCreateRequest
+     * @memberof ChannelsUpdateRequest
      */
     showCollectedSum: boolean;
 }
 /**
- * Check if a given object implements the ChannelsCreateRequest interface.
+ * Check if a given object implements the ChannelsUpdateRequest interface.
  */
-export declare function instanceOfChannelsCreateRequest(value: object): boolean;
-export declare function ChannelsCreateRequestFromJSON(json: any): ChannelsCreateRequest;
-export declare function ChannelsCreateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChannelsCreateRequest;
-export declare function ChannelsCreateRequestToJSON(value?: ChannelsCreateRequest | null): any;
+export declare function instanceOfChannelsUpdateRequest(value: object): boolean;
+export declare function ChannelsUpdateRequestFromJSON(json: any): ChannelsUpdateRequest;
+export declare function ChannelsUpdateRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChannelsUpdateRequest;
+export declare function ChannelsUpdateRequestToJSON(value?: ChannelsUpdateRequest | null): any;
