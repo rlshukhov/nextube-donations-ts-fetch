@@ -26,6 +26,12 @@ export interface PrivateFile {
      * @type {string}
      * @memberof PrivateFile
      */
+    publicKey?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PrivateFile
+     */
     name: string;
     /**
      *

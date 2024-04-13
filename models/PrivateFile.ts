@@ -30,6 +30,12 @@ export interface PrivateFile {
      * @type {string}
      * @memberof PrivateFile
      */
+    publicKey?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PrivateFile
+     */
     name: string;
     /**
      * 
@@ -66,6 +72,7 @@ export function PrivateFileFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'id': json['id'],
+        'publicKey': json['public_key'] == null ? undefined : json['public_key'],
         'name': json['name'],
         'size': json['size'],
         'externalHref': json['external_href'] == null ? undefined : json['external_href'],
@@ -79,6 +86,7 @@ export function PrivateFileToJSON(value?: PrivateFile | null): any {
     return {
         
         'id': value['id'],
+        'public_key': value['publicKey'],
         'name': value['name'],
         'size': value['size'],
         'external_href': value['externalHref'],
