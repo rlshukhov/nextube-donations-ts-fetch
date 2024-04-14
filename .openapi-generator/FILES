@@ -1,4 +1,5 @@
 apis/ChannelsApi.ts
+apis/DonationsApi.ts
 apis/GeoApi.ts
 apis/UsersApi.ts
 apis/index.ts
@@ -11,6 +12,9 @@ models/ChannelsPublicIdGet200Response.ts
 models/ChannelsUpdateRequest.ts
 models/City.ts
 models/Country.ts
+models/DonationsInit200Response.ts
+models/DonationsInit200ResponseData.ts
+models/DonationsInitRequest.ts
 models/Geo.ts
 models/GeoList200Response.ts
 models/ModelError.ts
