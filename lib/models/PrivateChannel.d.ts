@@ -18,12 +18,6 @@ import type { PrivateFile } from './PrivateFile';
 export interface PrivateChannel {
     /**
      *
-     * @type {boolean}
-     * @memberof PrivateChannel
-     */
-    showCollectedSum: boolean;
-    /**
-     *
      * @type {PrivateFile}
      * @memberof PrivateChannel
      */
@@ -58,6 +52,18 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     creationDate: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PrivateChannel
+     */
+    showCollectedSum: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PrivateChannel
+     */
+    isOwned: boolean;
 }
 /**
  * Check if a given object implements the PrivateChannel interface.

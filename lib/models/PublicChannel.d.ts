@@ -52,6 +52,18 @@ export interface PublicChannel {
      * @memberof PublicChannel
      */
     creationDate: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PublicChannel
+     */
+    showCollectedSum: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PublicChannel
+     */
+    isOwned: boolean;
 }
 /**
  * Check if a given object implements the PublicChannel interface.

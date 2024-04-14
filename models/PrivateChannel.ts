@@ -28,12 +28,6 @@ import {
 export interface PrivateChannel {
     /**
      * 
-     * @type {boolean}
-     * @memberof PrivateChannel
-     */
-    showCollectedSum: boolean;
-    /**
-     * 
      * @type {PrivateFile}
      * @memberof PrivateChannel
      */
@@ -68,18 +62,31 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     creationDate: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PrivateChannel
+     */
+    showCollectedSum: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PrivateChannel
+     */
+    isOwned: boolean;
 }
 
 /**
  * Check if a given object implements the PrivateChannel interface.
  */
 export function instanceOfPrivateChannel(value: object): boolean {
-    if (!('showCollectedSum' in value)) return false;
     if (!('avatarFile' in value)) return false;
     if (!('id' in value)) return false;
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
     if (!('creationDate' in value)) return false;
+    if (!('showCollectedSum' in value)) return false;
+    if (!('isOwned' in value)) return false;
     return true;
 }
 
@@ -93,13 +100,14 @@ export function PrivateChannelFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'showCollectedSum': json['show_collected_sum'],
         'avatarFile': PrivateFileFromJSON(json['avatar_file']),
         'id': json['id'],
         'name': json['name'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'creationDate': json['creation_date'],
+        'showCollectedSum': json['show_collected_sum'],
+        'isOwned': json['is_owned'],
     };
 }
 
@@ -109,13 +117,14 @@ export function PrivateChannelToJSON(value?: PrivateChannel | null): any {
     }
     return {
         
-        'show_collected_sum': value['showCollectedSum'],
         'avatar_file': PrivateFileToJSON(value['avatarFile']),
         'id': value['id'],
         'name': value['name'],
         'title': value['title'],
         'description': value['description'],
         'creation_date': value['creationDate'],
+        'show_collected_sum': value['showCollectedSum'],
+        'is_owned': value['isOwned'],
     };
 }
 

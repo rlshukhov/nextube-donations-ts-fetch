@@ -62,6 +62,18 @@ export interface PublicChannel {
      * @memberof PublicChannel
      */
     creationDate: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PublicChannel
+     */
+    showCollectedSum: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PublicChannel
+     */
+    isOwned: boolean;
 }
 
 /**
@@ -73,6 +85,8 @@ export function instanceOfPublicChannel(value: object): boolean {
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
     if (!('creationDate' in value)) return false;
+    if (!('showCollectedSum' in value)) return false;
+    if (!('isOwned' in value)) return false;
     return true;
 }
 
@@ -92,6 +106,8 @@ export function PublicChannelFromJSONTyped(json: any, ignoreDiscriminator: boole
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'creationDate': json['creation_date'],
+        'showCollectedSum': json['show_collected_sum'],
+        'isOwned': json['is_owned'],
     };
 }
 
@@ -107,6 +123,8 @@ export function PublicChannelToJSON(value?: PublicChannel | null): any {
         'title': value['title'],
         'description': value['description'],
         'creation_date': value['creationDate'],
+        'show_collected_sum': value['showCollectedSum'],
+        'is_owned': value['isOwned'],
     };
 }
 
