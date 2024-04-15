@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { UsersProfileUpdateRequestAvatar } from './UsersProfileUpdateRequestAvatar';
+import type { ChannelsCreateRequestAvatarFile } from './ChannelsCreateRequestAvatarFile';
 /**
  *
  * @export
@@ -36,10 +36,10 @@ export interface ChannelsCreateRequest {
     description?: string;
     /**
      *
-     * @type {UsersProfileUpdateRequestAvatar}
+     * @type {ChannelsCreateRequestAvatarFile}
      * @memberof ChannelsCreateRequest
      */
-    avatarFile: UsersProfileUpdateRequestAvatar;
+    avatarFile: ChannelsCreateRequestAvatarFile;
     /**
      *
      * @type {boolean}

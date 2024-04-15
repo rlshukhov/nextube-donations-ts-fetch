@@ -6,6 +6,7 @@ apis/index.ts
 index.ts
 models/ChannelsCreate200Response.ts
 models/ChannelsCreateRequest.ts
+models/ChannelsCreateRequestAvatarFile.ts
 models/ChannelsFeaturedList200Response.ts
 models/ChannelsOwnedList200Response.ts
 models/ChannelsPublicIdGet200Response.ts
@@ -15,6 +16,8 @@ models/Country.ts
 models/DonationsInit200Response.ts
 models/DonationsInit200ResponseData.ts
 models/DonationsInitRequest.ts
+models/DonationsStatus200Response.ts
+models/DonationsStatusRequest.ts
 models/Geo.ts
 models/GeoList200Response.ts
 models/ModelError.ts
@@ -24,11 +27,10 @@ models/PublicChannel.ts
 models/PublicFile.ts
 models/Region.ts
 models/User.ts
+models/UsersEmailConfirmationResend200Response.ts
+models/UsersEmailPasswordResetRequest.ts
+models/UsersEmailPasswordResetUpdateRequest.ts
 models/UsersProfileGet200Response.ts
-models/UsersProfileUpdate200Response.ts
-models/UsersProfileUpdateRequest.ts
-models/UsersProfileUpdateRequestAuth.ts
-models/UsersProfileUpdateRequestAvatar.ts
 models/UsersRegister200Response.ts
 models/UsersRegister200ResponseData.ts
 models/UsersRegisterRequest.ts

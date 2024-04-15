@@ -13,12 +13,12 @@
  */
 
 import { mapValues } from '../runtime';
-import type { UsersProfileUpdateRequestAvatar } from './UsersProfileUpdateRequestAvatar';
+import type { ChannelsCreateRequestAvatarFile } from './ChannelsCreateRequestAvatarFile';
 import {
-    UsersProfileUpdateRequestAvatarFromJSON,
-    UsersProfileUpdateRequestAvatarFromJSONTyped,
-    UsersProfileUpdateRequestAvatarToJSON,
-} from './UsersProfileUpdateRequestAvatar';
+    ChannelsCreateRequestAvatarFileFromJSON,
+    ChannelsCreateRequestAvatarFileFromJSONTyped,
+    ChannelsCreateRequestAvatarFileToJSON,
+} from './ChannelsCreateRequestAvatarFile';
 
 /**
  * 
@@ -46,10 +46,10 @@ export interface ChannelsCreateRequest {
     description?: string;
     /**
      * 
-     * @type {UsersProfileUpdateRequestAvatar}
+     * @type {ChannelsCreateRequestAvatarFile}
      * @memberof ChannelsCreateRequest
      */
-    avatarFile: UsersProfileUpdateRequestAvatar;
+    avatarFile: ChannelsCreateRequestAvatarFile;
     /**
      * 
      * @type {boolean}
@@ -82,7 +82,7 @@ export function ChannelsCreateRequestFromJSONTyped(json: any, ignoreDiscriminato
         'name': json['name'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
-        'avatarFile': UsersProfileUpdateRequestAvatarFromJSON(json['avatar_file']),
+        'avatarFile': ChannelsCreateRequestAvatarFileFromJSON(json['avatar_file']),
         'showCollectedSum': json['show_collected_sum'],
     };
 }
@@ -96,7 +96,7 @@ export function ChannelsCreateRequestToJSON(value?: ChannelsCreateRequest | null
         'name': value['name'],
         'title': value['title'],
         'description': value['description'],
-        'avatar_file': UsersProfileUpdateRequestAvatarToJSON(value['avatarFile']),
+        'avatar_file': ChannelsCreateRequestAvatarFileToJSON(value['avatarFile']),
         'show_collected_sum': value['showCollectedSum'],
     };
 }

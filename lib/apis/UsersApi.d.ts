@@ -10,12 +10,15 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { UsersProfileGet200Response, UsersProfileUpdate200Response, UsersProfileUpdateRequest, UsersRegister200Response, UsersRegisterRequest } from '../models/index';
+import type { UsersEmailConfirmationResend200Response, UsersEmailPasswordResetRequest, UsersEmailPasswordResetUpdateRequest, UsersProfileGet200Response, UsersRegister200Response, UsersRegisterRequest } from '../models/index';
+export interface UsersEmailPasswordResetOperationRequest {
+    usersEmailPasswordResetRequest: UsersEmailPasswordResetRequest;
+}
+export interface UsersEmailPasswordResetUpdateOperationRequest {
+    usersEmailPasswordResetUpdateRequest: UsersEmailPasswordResetUpdateRequest;
+}
 export interface UsersLoginRequest {
     usersRegisterRequest: UsersRegisterRequest;
-}
-export interface UsersProfileUpdateOperationRequest {
-    usersProfileUpdateRequest: UsersProfileUpdateRequest;
 }
 export interface UsersRegisterOperationRequest {
     usersRegisterRequest: UsersRegisterRequest;
@@ -26,10 +29,22 @@ export interface UsersRegisterOperationRequest {
 export declare class UsersApi extends runtime.BaseAPI {
     /**
      */
-    usersEmailConfirmationResendRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersProfileUpdate200Response>>;
+    usersEmailConfirmationResendRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>>;
     /**
      */
-    usersEmailConfirmationResend(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileUpdate200Response>;
+    usersEmailConfirmationResend(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response>;
+    /**
+     */
+    usersEmailPasswordResetRaw(requestParameters: UsersEmailPasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>>;
+    /**
+     */
+    usersEmailPasswordReset(requestParameters: UsersEmailPasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response>;
+    /**
+     */
+    usersEmailPasswordResetUpdateRaw(requestParameters: UsersEmailPasswordResetUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>>;
+    /**
+     */
+    usersEmailPasswordResetUpdate(requestParameters: UsersEmailPasswordResetUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response>;
     /**
      */
     usersLoginRaw(requestParameters: UsersLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersRegister200Response>>;
@@ -42,12 +57,6 @@ export declare class UsersApi extends runtime.BaseAPI {
     /**
      */
     usersProfileGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileGet200Response>;
-    /**
-     */
-    usersProfileUpdateRaw(requestParameters: UsersProfileUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersProfileUpdate200Response>>;
-    /**
-     */
-    usersProfileUpdate(requestParameters: UsersProfileUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileUpdate200Response>;
     /**
      */
     usersRegisterRaw(requestParameters: UsersRegisterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersRegister200Response>>;

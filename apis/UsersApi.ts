@@ -15,31 +15,38 @@
 
 import * as runtime from '../runtime';
 import type {
+  UsersEmailConfirmationResend200Response,
+  UsersEmailPasswordResetRequest,
+  UsersEmailPasswordResetUpdateRequest,
   UsersProfileGet200Response,
-  UsersProfileUpdate200Response,
-  UsersProfileUpdateRequest,
   UsersRegister200Response,
   UsersRegisterRequest,
 } from '../models/index';
 import {
+    UsersEmailConfirmationResend200ResponseFromJSON,
+    UsersEmailConfirmationResend200ResponseToJSON,
+    UsersEmailPasswordResetRequestFromJSON,
+    UsersEmailPasswordResetRequestToJSON,
+    UsersEmailPasswordResetUpdateRequestFromJSON,
+    UsersEmailPasswordResetUpdateRequestToJSON,
     UsersProfileGet200ResponseFromJSON,
     UsersProfileGet200ResponseToJSON,
-    UsersProfileUpdate200ResponseFromJSON,
-    UsersProfileUpdate200ResponseToJSON,
-    UsersProfileUpdateRequestFromJSON,
-    UsersProfileUpdateRequestToJSON,
     UsersRegister200ResponseFromJSON,
     UsersRegister200ResponseToJSON,
     UsersRegisterRequestFromJSON,
     UsersRegisterRequestToJSON,
 } from '../models/index';
 
-export interface UsersLoginRequest {
-    usersRegisterRequest: UsersRegisterRequest;
+export interface UsersEmailPasswordResetOperationRequest {
+    usersEmailPasswordResetRequest: UsersEmailPasswordResetRequest;
 }
 
-export interface UsersProfileUpdateOperationRequest {
-    usersProfileUpdateRequest: UsersProfileUpdateRequest;
+export interface UsersEmailPasswordResetUpdateOperationRequest {
+    usersEmailPasswordResetUpdateRequest: UsersEmailPasswordResetUpdateRequest;
+}
+
+export interface UsersLoginRequest {
+    usersRegisterRequest: UsersRegisterRequest;
 }
 
 export interface UsersRegisterOperationRequest {
@@ -53,7 +60,7 @@ export class UsersApi extends runtime.BaseAPI {
 
     /**
      */
-    async usersEmailConfirmationResendRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersProfileUpdate200Response>> {
+    async usersEmailConfirmationResendRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -69,13 +76,81 @@ export class UsersApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UsersProfileUpdate200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => UsersEmailConfirmationResend200ResponseFromJSON(jsonValue));
     }
 
     /**
      */
-    async usersEmailConfirmationResend(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileUpdate200Response> {
+    async usersEmailConfirmationResend(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response> {
         const response = await this.usersEmailConfirmationResendRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async usersEmailPasswordResetRaw(requestParameters: UsersEmailPasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>> {
+        if (requestParameters['usersEmailPasswordResetRequest'] == null) {
+            throw new runtime.RequiredError(
+                'usersEmailPasswordResetRequest',
+                'Required parameter "usersEmailPasswordResetRequest" was null or undefined when calling usersEmailPasswordReset().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/api/v1/users/password/reset`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UsersEmailPasswordResetRequestToJSON(requestParameters['usersEmailPasswordResetRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UsersEmailConfirmationResend200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async usersEmailPasswordReset(requestParameters: UsersEmailPasswordResetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response> {
+        const response = await this.usersEmailPasswordResetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async usersEmailPasswordResetUpdateRaw(requestParameters: UsersEmailPasswordResetUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersEmailConfirmationResend200Response>> {
+        if (requestParameters['usersEmailPasswordResetUpdateRequest'] == null) {
+            throw new runtime.RequiredError(
+                'usersEmailPasswordResetUpdateRequest',
+                'Required parameter "usersEmailPasswordResetUpdateRequest" was null or undefined when calling usersEmailPasswordResetUpdate().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/api/v1/users/password/reset`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UsersEmailPasswordResetUpdateRequestToJSON(requestParameters['usersEmailPasswordResetUpdateRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UsersEmailConfirmationResend200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async usersEmailPasswordResetUpdate(requestParameters: UsersEmailPasswordResetUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersEmailConfirmationResend200Response> {
+        const response = await this.usersEmailPasswordResetUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -138,44 +213,6 @@ export class UsersApi extends runtime.BaseAPI {
      */
     async usersProfileGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileGet200Response> {
         const response = await this.usersProfileGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
-     */
-    async usersProfileUpdateRaw(requestParameters: UsersProfileUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UsersProfileUpdate200Response>> {
-        if (requestParameters['usersProfileUpdateRequest'] == null) {
-            throw new runtime.RequiredError(
-                'usersProfileUpdateRequest',
-                'Required parameter "usersProfileUpdateRequest" was null or undefined when calling usersProfileUpdate().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Session-Token"] = await this.configuration.apiKey("X-Session-Token"); // Token authentication
-        }
-
-        const response = await this.request({
-            path: `/api/v1/users/profile`,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UsersProfileUpdateRequestToJSON(requestParameters['usersProfileUpdateRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => UsersProfileUpdate200ResponseFromJSON(jsonValue));
-    }
-
-    /**
-     */
-    async usersProfileUpdate(requestParameters: UsersProfileUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UsersProfileUpdate200Response> {
-        const response = await this.usersProfileUpdateRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

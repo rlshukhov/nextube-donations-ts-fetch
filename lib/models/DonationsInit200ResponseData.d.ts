@@ -20,6 +20,12 @@ export interface DonationsInit200ResponseData {
      * @type {string}
      * @memberof DonationsInit200ResponseData
      */
+    id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DonationsInit200ResponseData
+     */
     type: string;
     /**
      *

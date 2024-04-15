@@ -13,7 +13,7 @@
  */
 
 
-export const BASE_PATH = "http://backend.donate.nextube.local".replace(/\/+$/, "");
+export const BASE_PATH = "https://backend.donate.nextube.ru".replace(/\/+$/, "");
 
 export interface ConfigurationParameters {
     basePath?: string; // override base path

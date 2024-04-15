@@ -17,16 +17,26 @@ import * as runtime from '../runtime';
 import type {
   DonationsInit200Response,
   DonationsInitRequest,
+  DonationsStatus200Response,
+  DonationsStatusRequest,
 } from '../models/index';
 import {
     DonationsInit200ResponseFromJSON,
     DonationsInit200ResponseToJSON,
     DonationsInitRequestFromJSON,
     DonationsInitRequestToJSON,
+    DonationsStatus200ResponseFromJSON,
+    DonationsStatus200ResponseToJSON,
+    DonationsStatusRequestFromJSON,
+    DonationsStatusRequestToJSON,
 } from '../models/index';
 
 export interface DonationsInitOperationRequest {
     donationsInitRequest: DonationsInitRequest;
+}
+
+export interface DonationsStatusOperationRequest {
+    donationsStatusRequest: DonationsStatusRequest;
 }
 
 /**
@@ -65,6 +75,40 @@ export class DonationsApi extends runtime.BaseAPI {
      */
     async donationsInit(requestParameters: DonationsInitOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DonationsInit200Response> {
         const response = await this.donationsInitRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async donationsStatusRaw(requestParameters: DonationsStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DonationsStatus200Response>> {
+        if (requestParameters['donationsStatusRequest'] == null) {
+            throw new runtime.RequiredError(
+                'donationsStatusRequest',
+                'Required parameter "donationsStatusRequest" was null or undefined when calling donationsStatus().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/api/v1/donations/status`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DonationsStatusRequestToJSON(requestParameters['donationsStatusRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => DonationsStatus200ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async donationsStatus(requestParameters: DonationsStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DonationsStatus200Response> {
+        const response = await this.donationsStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

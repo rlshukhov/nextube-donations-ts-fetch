@@ -10,9 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DonationsInit200Response, DonationsInitRequest } from '../models/index';
+import type { DonationsInit200Response, DonationsInitRequest, DonationsStatus200Response, DonationsStatusRequest } from '../models/index';
 export interface DonationsInitOperationRequest {
     donationsInitRequest: DonationsInitRequest;
+}
+export interface DonationsStatusOperationRequest {
+    donationsStatusRequest: DonationsStatusRequest;
 }
 /**
  *
@@ -24,4 +27,10 @@ export declare class DonationsApi extends runtime.BaseAPI {
     /**
      */
     donationsInit(requestParameters: DonationsInitOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DonationsInit200Response>;
+    /**
+     */
+    donationsStatusRaw(requestParameters: DonationsStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DonationsStatus200Response>>;
+    /**
+     */
+    donationsStatus(requestParameters: DonationsStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DonationsStatus200Response>;
 }

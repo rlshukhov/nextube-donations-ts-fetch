@@ -24,6 +24,12 @@ export interface DonationsInit200ResponseData {
      * @type {string}
      * @memberof DonationsInit200ResponseData
      */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DonationsInit200ResponseData
+     */
     type: string;
     /**
      * 
@@ -37,6 +43,7 @@ export interface DonationsInit200ResponseData {
  * Check if a given object implements the DonationsInit200ResponseData interface.
  */
 export function instanceOfDonationsInit200ResponseData(value: object): boolean {
+    if (!('id' in value)) return false;
     if (!('type' in value)) return false;
     if (!('data' in value)) return false;
     return true;
@@ -52,6 +59,7 @@ export function DonationsInit200ResponseDataFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
+        'id': json['id'],
         'type': json['type'],
         'data': json['data'],
     };
@@ -63,6 +71,7 @@ export function DonationsInit200ResponseDataToJSON(value?: DonationsInit200Respo
     }
     return {
         
+        'id': value['id'],
         'type': value['type'],
         'data': value['data'],
     };
