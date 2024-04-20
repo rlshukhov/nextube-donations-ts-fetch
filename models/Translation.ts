@@ -30,7 +30,7 @@ export interface Translation {
      * @type {string}
      * @memberof Translation
      */
-    description: string;
+    description?: string;
 }
 
 /**
@@ -38,7 +38,6 @@ export interface Translation {
  */
 export function instanceOfTranslation(value: object): boolean {
     if (!('title' in value)) return false;
-    if (!('description' in value)) return false;
     return true;
 }
 
@@ -53,7 +52,7 @@ export function TranslationFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'title': json['title'],
-        'description': json['description'],
+        'description': json['description'] == null ? undefined : json['description'],
     };
 }
 

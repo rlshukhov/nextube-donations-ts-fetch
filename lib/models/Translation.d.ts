@@ -26,7 +26,7 @@ export interface Translation {
      * @type {string}
      * @memberof Translation
      */
-    description: string;
+    description?: string;
 }
 /**
  * Check if a given object implements the Translation interface.

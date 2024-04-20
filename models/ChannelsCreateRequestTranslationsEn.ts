@@ -30,7 +30,7 @@ export interface ChannelsCreateRequestTranslationsEn {
      * @type {string}
      * @memberof ChannelsCreateRequestTranslationsEn
      */
-    description: string;
+    description?: string;
 }
 
 /**
@@ -38,7 +38,6 @@ export interface ChannelsCreateRequestTranslationsEn {
  */
 export function instanceOfChannelsCreateRequestTranslationsEn(value: object): boolean {
     if (!('title' in value)) return false;
-    if (!('description' in value)) return false;
     return true;
 }
 
@@ -53,7 +52,7 @@ export function ChannelsCreateRequestTranslationsEnFromJSONTyped(json: any, igno
     return {
         
         'title': json['title'],
-        'description': json['description'],
+        'description': json['description'] == null ? undefined : json['description'],
     };
 }
 

@@ -26,7 +26,7 @@ export interface ChannelsCreateRequestTranslationsEn {
      * @type {string}
      * @memberof ChannelsCreateRequestTranslationsEn
      */
-    description: string;
+    description?: string;
 }
 /**
  * Check if a given object implements the ChannelsCreateRequestTranslationsEn interface.
