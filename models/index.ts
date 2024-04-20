@@ -3,6 +3,8 @@
 export * from './ChannelsCreate200Response';
 export * from './ChannelsCreateRequest';
 export * from './ChannelsCreateRequestAvatarFile';
+export * from './ChannelsCreateRequestTranslations';
+export * from './ChannelsCreateRequestTranslationsEn';
 export * from './ChannelsFeaturedList200Response';
 export * from './ChannelsOwnedList200Response';
 export * from './ChannelsPublicIdGet200Response';
@@ -22,6 +24,8 @@ export * from './PrivateFile';
 export * from './PublicChannel';
 export * from './PublicFile';
 export * from './Region';
+export * from './Translation';
+export * from './Translations';
 export * from './User';
 export * from './UsersEmailConfirmationResend200Response';
 export * from './UsersEmailPasswordResetRequest';

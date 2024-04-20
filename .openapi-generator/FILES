@@ -7,6 +7,8 @@ index.ts
 models/ChannelsCreate200Response.ts
 models/ChannelsCreateRequest.ts
 models/ChannelsCreateRequestAvatarFile.ts
+models/ChannelsCreateRequestTranslations.ts
+models/ChannelsCreateRequestTranslationsEn.ts
 models/ChannelsFeaturedList200Response.ts
 models/ChannelsOwnedList200Response.ts
 models/ChannelsPublicIdGet200Response.ts
@@ -26,6 +28,8 @@ models/PrivateFile.ts
 models/PublicChannel.ts
 models/PublicFile.ts
 models/Region.ts
+models/Translation.ts
+models/Translations.ts
 models/User.ts
 models/UsersEmailConfirmationResend200Response.ts
 models/UsersEmailPasswordResetRequest.ts

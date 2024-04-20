@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { PrivateFile } from './PrivateFile';
+import type { Translations } from './Translations';
 /**
  *
  * @export
@@ -22,6 +23,12 @@ export interface PrivateChannel {
      * @memberof PrivateChannel
      */
     avatarFile: PrivateFile;
+    /**
+     *
+     * @type {Translations}
+     * @memberof PrivateChannel
+     */
+    translations: Translations;
     /**
      *
      * @type {string}

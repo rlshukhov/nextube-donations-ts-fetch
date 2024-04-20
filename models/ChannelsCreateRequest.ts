@@ -19,6 +19,12 @@ import {
     ChannelsCreateRequestAvatarFileFromJSONTyped,
     ChannelsCreateRequestAvatarFileToJSON,
 } from './ChannelsCreateRequestAvatarFile';
+import type { ChannelsCreateRequestTranslations } from './ChannelsCreateRequestTranslations';
+import {
+    ChannelsCreateRequestTranslationsFromJSON,
+    ChannelsCreateRequestTranslationsFromJSONTyped,
+    ChannelsCreateRequestTranslationsToJSON,
+} from './ChannelsCreateRequestTranslations';
 
 /**
  * 
@@ -56,6 +62,12 @@ export interface ChannelsCreateRequest {
      * @memberof ChannelsCreateRequest
      */
     showCollectedSum: boolean;
+    /**
+     * 
+     * @type {ChannelsCreateRequestTranslations}
+     * @memberof ChannelsCreateRequest
+     */
+    translations?: ChannelsCreateRequestTranslations;
 }
 
 /**
@@ -84,6 +96,7 @@ export function ChannelsCreateRequestFromJSONTyped(json: any, ignoreDiscriminato
         'description': json['description'] == null ? undefined : json['description'],
         'avatarFile': ChannelsCreateRequestAvatarFileFromJSON(json['avatar_file']),
         'showCollectedSum': json['show_collected_sum'],
+        'translations': json['translations'] == null ? undefined : ChannelsCreateRequestTranslationsFromJSON(json['translations']),
     };
 }
 
@@ -98,6 +111,7 @@ export function ChannelsCreateRequestToJSON(value?: ChannelsCreateRequest | null
         'description': value['description'],
         'avatar_file': ChannelsCreateRequestAvatarFileToJSON(value['avatarFile']),
         'show_collected_sum': value['showCollectedSum'],
+        'translations': ChannelsCreateRequestTranslationsToJSON(value['translations']),
     };
 }
 

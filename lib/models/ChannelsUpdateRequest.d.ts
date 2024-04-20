@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ChannelsCreateRequestAvatarFile } from './ChannelsCreateRequestAvatarFile';
+import type { ChannelsCreateRequestTranslations } from './ChannelsCreateRequestTranslations';
 /**
  *
  * @export
@@ -52,6 +53,12 @@ export interface ChannelsUpdateRequest {
      * @memberof ChannelsUpdateRequest
      */
     showCollectedSum: boolean;
+    /**
+     *
+     * @type {ChannelsCreateRequestTranslations}
+     * @memberof ChannelsUpdateRequest
+     */
+    translations?: ChannelsCreateRequestTranslations;
 }
 /**
  * Check if a given object implements the ChannelsUpdateRequest interface.
