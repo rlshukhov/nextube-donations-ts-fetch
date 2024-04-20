@@ -43,7 +43,7 @@ export interface PrivateChannel {
      * @type {Translations}
      * @memberof PrivateChannel
      */
-    translations: Translations;
+    translations?: Translations;
     /**
      * 
      * @type {string}
@@ -93,7 +93,6 @@ export interface PrivateChannel {
  */
 export function instanceOfPrivateChannel(value: object): boolean {
     if (!('avatarFile' in value)) return false;
-    if (!('translations' in value)) return false;
     if (!('id' in value)) return false;
     if (!('name' in value)) return false;
     if (!('title' in value)) return false;
@@ -114,7 +113,7 @@ export function PrivateChannelFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'avatarFile': PrivateFileFromJSON(json['avatar_file']),
-        'translations': TranslationsFromJSON(json['translations']),
+        'translations': json['translations'] == null ? undefined : TranslationsFromJSON(json['translations']),
         'id': json['id'],
         'name': json['name'],
         'title': json['title'],

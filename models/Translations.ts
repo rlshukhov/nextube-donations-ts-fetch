@@ -31,21 +31,19 @@ export interface Translations {
      * @type {Translation}
      * @memberof Translations
      */
-    en: Translation;
+    en?: Translation;
     /**
      * 
      * @type {Translation}
      * @memberof Translations
      */
-    ru: Translation;
+    ru?: Translation;
 }
 
 /**
  * Check if a given object implements the Translations interface.
  */
 export function instanceOfTranslations(value: object): boolean {
-    if (!('en' in value)) return false;
-    if (!('ru' in value)) return false;
     return true;
 }
 
@@ -59,8 +57,8 @@ export function TranslationsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'en': TranslationFromJSON(json['en']),
-        'ru': TranslationFromJSON(json['ru']),
+        'en': json['en'] == null ? undefined : TranslationFromJSON(json['en']),
+        'ru': json['ru'] == null ? undefined : TranslationFromJSON(json['ru']),
     };
 }
 

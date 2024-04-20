@@ -21,13 +21,13 @@ export interface Translations {
      * @type {Translation}
      * @memberof Translations
      */
-    en: Translation;
+    en?: Translation;
     /**
      *
      * @type {Translation}
      * @memberof Translations
      */
-    ru: Translation;
+    ru?: Translation;
 }
 /**
  * Check if a given object implements the Translations interface.

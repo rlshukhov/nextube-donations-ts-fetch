@@ -51,7 +51,7 @@ export interface User {
      * @type {PublicFile}
      * @memberof User
      */
-    avatar: PublicFile;
+    avatar?: PublicFile;
 }
 /**
  * Check if a given object implements the User interface.

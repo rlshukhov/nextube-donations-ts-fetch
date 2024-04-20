@@ -28,7 +28,7 @@ export interface PrivateChannel {
      * @type {Translations}
      * @memberof PrivateChannel
      */
-    translations: Translations;
+    translations?: Translations;
     /**
      *
      * @type {string}
